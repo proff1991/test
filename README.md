@@ -9,7 +9,7 @@
 * **YouTube:** 
 
 ## About Me
-Имею много различных хобби: программирование, компьютеры, электроника, музыка, видеоигры, видеомонтаж, дизайн. Благодаря перечисленным увлечениям смог устроиться на работу контент менеджером в интернет-магазине по продаже электроники. Внутри компании удалось создать YouTube канал по мобильным видеоиграм со своим активными комьюнити. Увлечение музыкой (игрой на гитаре) помогло и вести ютуб канала (делать музыкальные вставки), и быть желанным гостем на корпоративах компании. Но лучше всего раскрылось моё увлечение программированием благодаря чему на своей текущей работе из обычного контент-менеджера я смог стать программистом сделав десятки программных продуктов для ведения и контроля учёта товаров, заказов, аналитики рынка и т.д.. Из-за того что все свои приложения я делал сам - мой код недостаточно оптимизирован. Моя цель - стать полноценным бекенд разработчиком. Надеюсь учёба в RS School поможет мне заполнить все пробелы в знаниях фронтенд разработки что поможет мне делать более оптимальные бекенд приложения.
+У меня есть много хобби: программирование, компьютеры, электроника, музыка, видеоигры, видеомонтаж, дизайн. Благодаря своим увлечениям я смог устроиться на работу контент менеджером в интернет-магазине по продаже электроники. Внутри компании удалось создать YouTube канал по мобильным видеоиграм со своим активными комьюнити. Увлечение музыкой (игрой на гитаре) помогло и вести ютуб канала (делать музыкальные вставки), и быть желанным гостем на корпоративах компании. Но лучше всего раскрылось моё увлечение программированием благодаря чему на своей текущей работе из обычного контент-менеджера я смог стать программистом сделав десятки программных продуктов для ведения и контроля учёта товаров, заказов, аналитики рынка и т.д.. Из-за того что все свои приложения я делал сам - мой код недостаточно оптимизирован. Моя цель - стать полноценным бекенд разработчиком. Надеюсь учёба в RS School поможет мне заполнить все пробелы в знаниях фронтенд разработки что поможет мне делать более оптимальные бекенд приложения.
 
 ## Skills 
 * HTML (basic)
@@ -57,7 +57,10 @@ function goParser(){
 }
 
 function pageIterrator(firstLink){
-  SpreadsheetApp.openById( tableId ).getSheetByName( sheetName ).getRange( answerPriceRange ).clearContent()
+  SpreadsheetApp.openById( tableId )
+    .getSheetByName( sheetName )
+    .getRange( answerPriceRange )
+    .clearContent();
   parserWebsite(firstLink+filterType)
   for(let i1 = 2; disabledGoods.length < 2; ++i1){
     parserWebsite(`${firstLink}p${i1}/${filterType}`)
@@ -87,9 +90,16 @@ function parserWebsite(link){
       .html());
     disabledGoods += cheerioAnswer('span.buy-btn.disabled').text()
     cheerioButton = cheerioAnswer('button.buy-btn').text()
-    cheerioCode = cheerioAnswer('div.sku-block').text().match(/\d/g).join('')
-    cheerioName = cheerioAnswer('a.name-block').text().replace(/Смартфон /,"").replace(/\s\/\s/,"/");
-    cheerioPrice = cheerioAnswer('div.regular-price').text().match(/\d/g).join('')
+    cheerioCode = cheerioAnswer('div.sku-block')
+      .text()
+      .match(/\d/g)
+      .join('');
+    cheerioName = cheerioAnswer('a.name-block')
+      .text().replace(/Смартфон /,"")
+      .replace(/\s\/\s/,"/");
+    cheerioPrice = cheerioAnswer('div.regular-price')
+      .text().match(/\d/g)
+      .join('');
     cheerioButton ? parserResult.push([ cheerioCode, cheerioName, cheerioPrice, cheerioButton]) : "";
   }
   
@@ -100,8 +110,10 @@ function parserWebsite(link){
 2017 - настоящее время: разработка приложений на Goole Sheets и Google Apps Script
 
 ## Education
-2009-2013
-2013-2014 
+#### Donbas State Technical University
+Ferrous metallurgy, Steelmaker
+* **2009-2013:** bachelor
+* **2013-2014:** master
 
 
 
