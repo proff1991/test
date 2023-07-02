@@ -24,7 +24,7 @@
 
 ## Code example
 ### codewars 
-Task ["Simple Pig Latin"](https://www.codewars.com/kata/520b9d2ad5c005041100000f/typescript) 
+##### Task ["Simple Pig Latin"](https://www.codewars.com/kata/520b9d2ad5c005041100000f/typescript) 
 
 ```
 export const pigIt = (a : string) : string =>  {
@@ -41,7 +41,7 @@ export const pigIt = (a : string) : string =>  {
 }
 ```
 
-Google Script with Cheerio library
+##### Google Script with Cheerio library, parser
 ```
 const link = "https://unknownwebsite.ua/uk/cellphones/"
 const tableId = "unknownGoogleSheetsId"
