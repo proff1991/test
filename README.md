@@ -14,10 +14,28 @@
 ## Skills 
 * HTML (basic)
 * CSS (basic)
-* JS / Node.js (5kyu codewars)
+* JS (5kyu codewars)
+* Node.js (basic)
 * Google Apps Script
 * Google Sheets / Microsoft Excell 
 * Adobe Photoshop 
 * Adobe Premiere Pro / Magix Vegas Pro
 * Ableton Live
 
+## Code example
+### 
+
+```
+export const pigIt = (a : string) : string =>  {
+  let stringArray = a.split(" ")
+  let newArray = []
+  for (let elem of stringArray){
+    if (/[A-Za-z]/g.test(elem)) {
+      newArray.push(elem.split("").slice(1).join("")+elem[0]+"ay")
+    } else {
+      newArray.push(elem)
+    }
+  }
+  return newArray.join(" ")
+}
+```
