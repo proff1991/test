@@ -53,26 +53,17 @@ let disabledGoods = ""
 
 
 function goParser(){
-
   pageIterrator(link)
-
 }
 
 function pageIterrator(firstLink){
-
   SpreadsheetApp.openById( tableId ).getSheetByName( sheetName ).getRange( answerPriceRange ).clearContent()
-  
   parserWebsite(firstLink+filterType)
-
   for(let i1 = 2; disabledGoods.length < 2; ++i1){
-
     parserWebsite(`${firstLink}p${i1}/${filterType}`)
-
   }
-
   SpreadsheetApp.openById( tableId ).getSheetByName( sheetName ).getRange( answerPriceRange + parserResult.length ).setValues( parserResult )
   SpreadsheetApp.flush()
-
 }
 
 
