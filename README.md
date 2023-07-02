@@ -9,7 +9,7 @@
 * **YouTube:** 
 
 ## About Me
-У меня есть много хобби: программирование, компьютеры, электроника, музыка, видеоигры, видеомонтаж, дизайн. Благодаря своим увлечениям я смог устроиться на работу контент менеджером в интернет-магазине по продаже электроники. Внутри компании удалось создать YouTube канал по мобильным видеоиграм со своим активными комьюнити. Увлечение музыкой (игрой на гитаре) помогло и вести ютуб канала (делать музыкальные вставки), и быть желанным гостем на корпоративах компании. Но лучше всего раскрылось моё увлечение программированием благодаря чему на своей текущей работе из обычного контент-менеджера я смог стать программистом сделав десятки программных продуктов для ведения и контроля учёта товаров, заказов, аналитики рынка и т.д.. Из-за того что все свои приложения я делал сам - мой код недостаточно оптимизирован. Моя цель - стать полноценным бекенд разработчиком. Надеюсь учёба в RS School поможет мне заполнить все пробелы в знаниях фронтенд разработки что поможет мне делать более оптимальные бекенд приложения.
+У меня есть много хобби: программирование, компьютеры, электроника, музыка, видеоигры, видеомонтаж, дизайн. Благодаря своим увлечениям я смог устроиться на работу контент менеджером в интернет-магазине, создать YouTube канал и быть желанным гостем на корпоративах компании. Но лучше всего раскрылось моё увлечение программированием благодаря чему на своей текущей работе из обычного контент-менеджера я смог стать еще и программистом сделав десятки программных продуктов для ведения и контроля учёта товаров, заказов, аналитики рынка и т.д.. Из-за того что все свои приложения я делал сам и никто его не проверял - мой код недостаточно оптимизирован. Моя цель - стать полноценным бекенд разработчиком. Надеюсь учёба в RS School на курсе FE0 поможет мне заполнить все пробелы в начальных знаниях разработки приложений.
 
 ## Skills 
 * HTML (basic)
@@ -57,18 +57,23 @@ function goParser(){
 }
 
 function pageIterrator(firstLink){
+
   SpreadsheetApp.openById( tableId )
     .getSheetByName( sheetName )
     .getRange( answerPriceRange )
     .clearContent();
+
   parserWebsite(firstLink+filterType)
+
   for(let i1 = 2; disabledGoods.length < 2; ++i1){
     parserWebsite(`${firstLink}p${i1}/${filterType}`)
   }
+
   SpreadsheetApp.openById( tableId )
     .getSheetByName( sheetName )
     .getRange( answerPriceRange + parserResult.length )
     .setValues( parserResult );
+
   SpreadsheetApp.flush()
 }
 
@@ -88,18 +93,24 @@ function parserWebsite(link){
     cheerioAnswer = Cheerio.load($('div.products-listing-item.details-two-column')
       .eq([i])
       .html());
+
     disabledGoods += cheerioAnswer('span.buy-btn.disabled').text()
+
     cheerioButton = cheerioAnswer('button.buy-btn').text()
+
     cheerioCode = cheerioAnswer('div.sku-block')
       .text()
       .match(/\d/g)
       .join('');
+
     cheerioName = cheerioAnswer('a.name-block')
       .text().replace(/Смартфон /,"")
       .replace(/\s\/\s/,"/");
+
     cheerioPrice = cheerioAnswer('div.regular-price')
       .text().match(/\d/g)
       .join('');
+
     cheerioButton ? parserResult.push([ cheerioCode, cheerioName, cheerioPrice, cheerioButton]) : "";
   }
   
@@ -114,6 +125,9 @@ function parserWebsite(link){
 Ferrous metallurgy, Steelmaker
 * **2009-2013:** bachelor
 * **2013-2014:** master
+
+## English level
+A2 (Pre-Intermediate) English test result (Test passed on 12.04.2023 in 20 min. by [training.epam.ua](https://training.epam.ua/))
 
 
 
