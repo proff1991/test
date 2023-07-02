@@ -62,7 +62,10 @@ function pageIterrator(firstLink){
   for(let i1 = 2; disabledGoods.length < 2; ++i1){
     parserWebsite(`${firstLink}p${i1}/${filterType}`)
   }
-  SpreadsheetApp.openById( tableId ).getSheetByName( sheetName ).getRange( answerPriceRange + parserResult.length ).setValues( parserResult )
+  SpreadsheetApp.openById( tableId )
+    .getSheetByName( sheetName )
+    .getRange( answerPriceRange + parserResult.length )
+    .setValues( parserResult );
   SpreadsheetApp.flush()
 }
 
@@ -79,16 +82,20 @@ function parserWebsite(link){
   let cheerioButton
 
   for( let i = 0 ; i < 30 ; ++i){
-    cheerioAnswer = Cheerio.load($('div.products-listing-item.details-two-column').eq([i]).html());
-    disabledGoods += cheerioAnswer('span.buy-btn.disabled').text();
-    cheerioButton = cheerioAnswer('button.buy-btn').text();
-    cheerioCode = cheerioAnswer('div.sku-block').text().match(/\d/g).join('');
+    cheerioAnswer = Cheerio.load($('div.products-listing-item.details-two-column')
+      .eq([i])
+      .html());
+    disabledGoods += cheerioAnswer('span.buy-btn.disabled').text()
+    cheerioButton = cheerioAnswer('button.buy-btn').text()
+    cheerioCode = cheerioAnswer('div.sku-block').text().match(/\d/g).join('')
     cheerioName = cheerioAnswer('a.name-block').text().replace(/Смартфон /,"").replace(/\s\/\s/,"/");
-    cheerioPrice = cheerioAnswer('div.regular-price').text().match(/\d/g).join('');
+    cheerioPrice = cheerioAnswer('div.regular-price').text().match(/\d/g).join('')
     cheerioButton ? parserResult.push([ cheerioCode, cheerioName, cheerioPrice, cheerioButton]) : "";
   }
   
 }
 ```
+## Experience
+
 
 
