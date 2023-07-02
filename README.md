@@ -4,4 +4,4 @@
 * Location: Kharkiv, Ukraine
 * Telegram: [@username118](https://t.me/username118)
 * Email: parkhomenko.business@gmail.com
-* GitHub: kryvetski-andrei
+* GitHub: [proff1991](https://github.com/proff1991)
