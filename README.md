@@ -95,7 +95,16 @@ function parserWebsite(link){
   
 }
 ```
+
 ## Experience
+2017 - настоящее время: разработка приложений на Goole Sheets и Google Apps Script
+
+## Education
+2009-2013
+2013-2014 
+
+
+
 
 
 
